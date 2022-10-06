@@ -1,0 +1,44 @@
+//--------------------------------------------
+//
+//  mixin
+//  ミックスイン・関数
+//
+//---------------------------------------------
+//---------------------------------------------
+//  media query
+//---------------------------------------------
+mq_pc()
+  @media screen and (min-width: MQ_PC)
+    {block}
+
+mq_sp()
+  @media screen and (max-width: MQ_SP)
+    {block}
+
+mq_tab()
+  @media (min-width: MQ_SP) and (max-width: MQ_TAB)
+    {block}
+
+// Retinaディスプレイ
+retina()
+  @media screen and (-webkit-min-device-pixel-ratio:2),(min-resolution: 2dppx)
+    {block}
+
+// ダーク/ライトテーマ
+theme_dark()
+  @media (prefers-color-scheme: dark)
+    {block}
+
+theme_light()
+  @media (prefers-color-scheme: light)
+    {block}
+
+//---------------------------------------------
+//  かんたんVW
+//  calc((100vw / デザイン幅) * その要素のデザイン上での幅)
+//  例
+//    width vw(560)  // デザイン上で 560px
+//    padding-top vw(100) // デザイン上で 100px
+//---------------------------------------------
+vw(design_px)
+  return "calc((100vw / %s ) * %s )" %(design_width design_px)

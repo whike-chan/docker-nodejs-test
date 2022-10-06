@@ -1,0 +1,46 @@
+//--------------------------------------------
+//
+//  variables
+//  変数定義
+//
+//---------------------------------------------
+//---------------------------------------------
+//  フォント指定
+//---------------------------------------------
+@font-face { font-family: "Yu Gothic M"; src: local("Yu Gothic Medium"); }
+@font-face { font-family: "Yu Gothic M"; src: local("Yu Gothic Bold"); font-weight: bold; }
+font_family =  -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Helvetica, "游ゴシック体", YuGothic, "Yu Gothic M", "游ゴシック Medium", "Yu Gothic Medium", "メイリオ", Meiryo, sans-serif;
+// 明朝体
+font_family_min = Georgia, Times, "Times New Roman", "游明朝体", YuMincho, "游明朝", "Yu Mincho", serif;
+
+//---------------------------------------------
+//  ブレイクポイント
+//---------------------------------------------
+MQ_PC = 750.1px
+MQ_SP = 750px
+MQ_TAB = 1080px
+
+//---------------------------------------------
+//  SPデザイン幅
+//  vwの計算に使用します。使わなければ無視でOK
+//---------------------------------------------
+design_width = 750
+
+//---------------------------------------------
+//  レイヤー管理
+//  z-index指定が散らばると厄介なため、ここで数値を管理すると良いです
+//  例) layer_footer = 100
+//      layer_pagetop = 110
+//---------------------------------------------
+
+//---------------------------------------------
+//  _layoutの設定 (true:出力される false:出力されない)
+//---------------------------------------------
+// 余白調整クラス
+use_spacing_classes = false
+
+// 各text-align
+use_ta = false
+
+// 各font-weight
+use_fw = false

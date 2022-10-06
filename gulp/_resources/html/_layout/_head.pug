@@ -1,0 +1,71 @@
+//--------------------------------------------
+//-
+//-  head
+//-
+//--------------------------------------------
+meta(charset='utf-8')
+meta(name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0')
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+//-電話番号・メルアド 自動リンクをやめる
+meta(name="format-detection" content="email=no,telephone=no,address=no")
+
+if key == "top" || "default"
+  title #{page.title}
+else
+  title #{page.title}｜サイト名
+
+meta(name="description" content=page.description)
+//-キーワードは正直不要
+  meta(name="keywords" content="page.keywords")
+
+//-Androidタブカラー設定
+  meta(name="theme-color" content="#378586")
+
+//-検索エンジン 掲載(index)、巡回(follow)しないで欲しい
+  meta(name="robots" content="noindex,nofollow")
+//-URL正規化（コンテンツ重複ページがある場合に使用）
+  link(rel="canonical" href="正規化するURL")
+
+//--------------------------------------------
+//-  favicon・その他アイコン
+//--------------------------------------------
+link(rel="icon" href="/favicon.ico")
+//- link(rel="icon" href="画像URL" sizes="16x16" type="image/png")
+//- link(rel="icon" href="画像URL" sizes="32x32" type="image/png")
+//- link(rel="icon" href="画像URL" sizes="48x48" type="image/png")
+//- link(rel="icon" href="画像URL" sizes="62x62" type="image/png")
+
+//-スマホ用アイコン
+link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
+
+//-Windows用アイコン
+  meta(name="application-name" content="{サイト名}")
+  meta(name="msapplication-square70x70logo" content="small.jpg")
+  meta(name="msapplication-square150x150logo" content="medium.jpg")
+  meta(name="msapplication-wide310x150logo" content="wide.jpg")
+  meta(name="msapplication-square310x310logo" content="large.jpg")
+  meta(name="msapplication-TileColor" content="#FAA500")
+
+//--------------------------------------------
+//-  SNS
+//--------------------------------------------
+  meta(property="og:url" content="")
+  meta(property="og:title" content="")
+  //-og:type トップページ → website、記事ページ → article
+  meta(property="og:type" content="")
+  meta(property="og:description" content="")
+  meta(property="og:image" content="")
+  meta(property="og:site_name" content="")
+  meta(property="og:locale" content="ja_JP")
+//-FacebookのアプリID。あまり使わないようだ
+  meta(property="fb:app_id" content="appIDを入力")
+//-シェア-Twitter
+//-ツイートの表示種類。summary か summary_large_image
+//- meta(name="twitter:card" content="カード種類")
+//-関連させたいツイッターユーザー名。無ければ書かなくてよい
+  meta(name="twitter:site" content="@Twitterユーザー名")
+
+//--------------------------------------------
+//-  CSS
+//--------------------------------------------
+link(rel='stylesheet' href=path_css + 'style.css' type='text/css')

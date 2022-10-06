@@ -1,0 +1,34 @@
+//--------------------------------------------
+//-
+//-  layout
+//-  HTMLのテンプレート
+//-
+//--------------------------------------------
+doctype html
+
+//- サイト全体で使う変数はこちら
+include /_config/_vars
+
+//- 各ページでkeyを入力しmeta情報を呼ぶ
+include /_config/_pages
+
+block key
+  - var key = "default";
+
+- var page = pages[key];
+
+//- prefixはfacebookシェアがあるときのみ記載
+html(lang='ja' prefix='og: http://ogp.me/ns#')
+  block head
+    head
+      include /_layout/_head
+
+  block body
+    body
+      include /_layout/_header
+
+      block content
+
+      include /_layout/_footer
+
+      include /_layout/_script

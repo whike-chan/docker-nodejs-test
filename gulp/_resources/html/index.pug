@@ -1,0 +1,40 @@
+//--------------------------------------------
+//-
+//-  TOP
+//-
+//--------------------------------------------
+extend /_layout/_template
+
+block key
+  - var key = "top";
+
+block content
+  .l-inner
+    h1.hoge CONTENTS
+    ul
+      li ただの画像
+        br
+        img(src=path_img + "sample/1.jpg" alt="")
+      li ただの画像
+        br
+        img(src=path_img + "sample/2.jpg" alt="")
+      li PC/SP
+        br
+        img(src=spacer data-pc=path_img + "sample/3.jpg" data-sp=path_img + "sample/2.jpg" alt="")
+      li PC/SP
+        br
+        img(src=spacer data-pc=path_img + "sample/4.jpg" data-sp=path_img + "sample/3.jpg" alt="")
+      li lazyloadあり
+        br
+        img(src=spacer data-pc=path_img + "sample/5.jpg" data-sp=path_img + "sample/4.jpg" alt="").lazyload
+      li lazyloadあり
+        br
+        img(src=spacer data-pc=path_img + "sample/6.jpg" data-sp=path_img + "sample/5.jpg" alt="").lazyload
+      //- li
+      //-   img(src=path_img + "sample/7.jpg" alt="")
+      //- li
+      //-   img(src=path_img + "sample/8.jpg" alt="")
+      //- li
+      //-   img(src=path_img + "sample/9.jpg" alt="")
+      //- li
+      //-   img(src=path_img + "sample/10.jpg" alt="")

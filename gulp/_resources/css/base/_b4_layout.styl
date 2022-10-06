@@ -1,0 +1,53 @@
+//--------------------------------------------
+//
+//  layout
+//  自動出力クラス(スイッチはvariablesにあります)
+//
+//---------------------------------------------
+//---------------------------------------------
+//  text-align指定
+//---------------------------------------------
+if use_ta
+  .tac
+    text-align center !important
+  .tal
+    text-align left !important
+  .tar
+    text-align right !important
+
+//---------------------------------------------
+//  font-weight指定
+//---------------------------------------------
+if use_fw
+  .fwb
+    font-weight bold !important
+  .fwn
+    font-weight normal !important
+
+//---------------------------------------------
+//  余白調整用のクラス
+//  各マージン5~100のクラスが自動生成されます
+//  例）.mt5 margin-top 5px
+//      .mt10 margin-top 10px
+//---------------------------------------------
+if use_spacing_classes
+  for i in (0..20)
+    .mt{i*5}
+      margin-top 5px*(i) !important
+      +mq_sp()
+        margin-top (5px*(i) / 2) !important
+
+    .mb{i*5}
+      margin-bottom 5px*(i) !important
+      +mq_sp()
+        margin-bottom (5px*(i) / 2) !important
+
+    .pt{i*5}
+      padding-top 5px*i !important
+      +mq_sp()
+        padding-top (5px*(i) / 2) !important
+
+    .pb{i*5}
+      padding-bottom 5px *(i) !important
+      +mq_sp()
+        padding-bottom (5px*(i) / 2) !important

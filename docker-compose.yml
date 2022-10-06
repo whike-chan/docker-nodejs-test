@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  node:
+    image: node:14.20.1
+    container_name: node
+    tty: true
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./gulp:/usr/src/app
+    ports:
+      - 3000:3000
+      - 3001:3001
+    working_dir: /usr/src/app
