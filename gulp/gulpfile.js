@@ -151,18 +151,40 @@ function js() {
     // .pipe(browserify()) // 保留中
 
     // pipeしてthrough2オブジェクトを生成する
-    .pipe(through2.obj(function(file, encode, callback){
-      // fileにはsrcで読み込んだファイルの情報が引き渡される
-      // file.pathを利用してbrowserifyインスタンスを生成する
-      browserify(path._re + 'js/bundle.js')
-      .bundle(function(err, res){
-        // bundleを実行し，処理結果でcontentsを上書きする
-        file.contents = res;
-        // callbackを実行し，次の処理にfileを引き渡す
-        // nullになっている部分はエラー情報
-        callback(null, file)
-      });
-    }))
+    // .pipe(through2.obj(function(file, encode, callback){
+    //   // なにもしない
+    //   if(file.isNull()) {
+    //     return callback(null);
+    //   }
+
+    //   // streamはサポート外
+    //   if(file.isStream()) {
+    //     return callback(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
+    //   }
+
+    //   // 処理内容
+    //   if(file.isBuffer()) {
+    //     try {
+    //       // fileにはsrcで読み込んだファイルの情報が引き渡される
+    //       // file.pathを利用してbrowserifyインスタンスを生成する
+    //       browserify(path._re + 'js/bundle.js')
+    //       .bundle(function(err, res){
+    //         // bundleを実行し，処理結果でcontentsを上書きする
+    //         file.contents = res;
+    //         // callbackを実行し，次の処理にfileを引き渡す
+    //         // nullになっている部分はエラー情報
+    //         callback(null, file)
+    //       });
+    //     }
+
+    //     // エラー時
+    //     catch(error) {
+    //       return callback(new PluginError(PLUGIN_NAME, error));
+    //     }
+
+    //     return callback(null, file);
+    //   }
+    // }))
 
     // .pipe(eslint({
     //   ignorePatterns: ["lib/**/*"],
