@@ -39,6 +39,7 @@ const gulp = require('gulp'),
       imagemin = require(plugin + 'imagemin'),
       // テスト系
       backstop = require('backstopjs');
+const PluginError = require('plugin-error');
 
 /**
  * 環境設定
@@ -148,44 +149,27 @@ function css() {
 function js() {
   return gulp
     .src(re.JS)
+
+    // includeするやつ入れたい（戻す）
+
     // .pipe(browserify()) // 保留中
 
-    // pipeしてthrough2オブジェクトを生成する
-    // .pipe(through2.obj(function(file, encode, callback){
-    //   // なにもしない
-    //   if(file.isNull()) {
-    //     return callback(null);
-    //   }
+    // Browserify
+    .pipe(through2.obj((file, enc, callback) => {
+      browserify(file.path)
+        .bundle((err, buf) => {
+          // エラー処理
+          if (err !== null) {
+            return callback(new PluginError('browserify', err, {
+              showProperties: true,
+            }));
+          }
+          file.contents = buf;
+          callback(err, file);
+        });
+    }))
 
-    //   // streamはサポート外
-    //   if(file.isStream()) {
-    //     return callback(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
-    //   }
-
-    //   // 処理内容
-    //   if(file.isBuffer()) {
-    //     try {
-    //       // fileにはsrcで読み込んだファイルの情報が引き渡される
-    //       // file.pathを利用してbrowserifyインスタンスを生成する
-    //       browserify(path._re + 'js/bundle.js')
-    //       .bundle(function(err, res){
-    //         // bundleを実行し，処理結果でcontentsを上書きする
-    //         file.contents = res;
-    //         // callbackを実行し，次の処理にfileを引き渡す
-    //         // nullになっている部分はエラー情報
-    //         callback(null, file)
-    //       });
-    //     }
-
-    //     // エラー時
-    //     catch(error) {
-    //       return callback(new PluginError(PLUGIN_NAME, error));
-    //     }
-
-    //     return callback(null, file);
-    //   }
-    // }))
-
+    // eslint 保留
     // .pipe(eslint({
     //   ignorePatterns: ["lib/**/*"],
     //   extends: "eslint:recommended",

@@ -50,7 +50,6 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "imagemin-svgo": "^8.0.0",
-    "jquery": "^3.5.1",
     "postcss-reporter": "^6.0.1",
     "postcss-sorting": "^5.0.1",
     "stylelint": "^14.13.0",
@@ -62,5 +61,7 @@
   "browserslist": [
     "last 2 version"
   ],
-  "devDependencies": {}
+  "devDependencies": {
+    "jquery": "^3.6.1"
+  }
 }
